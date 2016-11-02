@@ -10,6 +10,9 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class InterfaceTest {
 	
+    private String client_id = "hl";
+    private String client_password = "000000";
+    
 	/**
 	 * @param client_id 调用者账号
 	 * @param client_password 调用者密码
@@ -19,8 +22,9 @@ public class InterfaceTest {
 	 * @return
 	 * @throws IOException
 	 */
-	public boolean msgSend(String client_id,String client_password,String send_id,String send_type,String send_way, String message){
+	public boolean msgSend(String send_id,String send_type,String send_way, String message){
 		
+	    
 		String url = "/msg/message/send";
 		
 		HttpClient client = new HttpClient();
