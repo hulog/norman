@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class App {
 
     // 压力测试，调用接口次数
-    private static final double wxCount = 80;
+    private static final double wxCount = 5;
     //
     private static int wxValidCount = 0;
 
@@ -17,18 +17,26 @@ public class App {
         System.out.println(str);
     }
 
+    private static void tips() {
+        syso("\n");
+        syso("微信(单发1/压力单发2)");
+        syso("微信(群发3/压力群发4)");
+        syso("邮件(单发5/压力单发6)");
+        syso("邮件(群发7/压力群发8)");
+        syso("退出请按0");
+        syso("请输入要功能编号:");
+    }
+
     public static void main(String[] args) {
         sendInterf si = new sendInterf();
 
-        int testmtd = 0;
-
-        //输入
-        syso("请输入要测试的功能编号");
+        // 输入
+        tips();
         Scanner sc = new Scanner(System.in);
+        Integer in = sc.nextInt();
 
-        while (sc.hasNextInt()) {
-            testmtd = sc.nextInt();
-            switch (testmtd) {
+        while (null != in & in != 0) {
+            switch (in) {
                 case 1:
                     // 发送个人微信
                     syso("start send personal wx ......");
@@ -48,38 +56,51 @@ public class App {
                     syso("发送次数:" + (int) wxCount + ",成功次数:" + wxValidCount + ",成功率:" + wxValidCount / wxCount * 100
                             + "%");
                 break;
-                case 3: 
-                 // 发送群组微信
+                case 3:
+                    // 发送群组微信
                     syso("start send group  wx ......");
-                    si.send_G_Wx();
-                    break;
+                    if (si.send_G_Wx())
+                        syso("success");
+                    else
+                        syso("failed");
+                break;
                 case 4:
-                 // 发送微信(压力)
+                    // 发送群组微信(压力)
                     syso("start send group  wx (under pressure)......");
                     si.send_G_Wx();
                 case 5:
                     // 发送个人邮件
                     syso("start send personal email ......");
-                    si.send_P_Em();
+                    if (si.send_P_Em())
+                        syso("success");
+                    else
+                        syso("failed");
                 break;
                 case 6:
                     // 发送个人邮件(压力)
                     syso("邮件压力测试开始 (under pressure)");
                 break;
                 case 7:
-                 // 发送群组邮件
+                    // 发送群组邮件
                     syso("start send group email ......");
-                    si.send_G_Em();
-                    break;
+                    if (si.send_G_Em())
+                        syso("success");
+                    else
+                        syso("failed");
+                break;
                 case 8:
-                    //发送群组邮件(压力)
+                    // 发送群组邮件(压力)
                     syso("start send group email (under pressure)......");
-                    break;
+                break;
                 default:
                 break;
             }
+            tips();
+            in = sc.nextInt();
         }
         sc.close();
+        syso("bye……");
+
         // 压力测试 循环
 
         // // 发送个人短信

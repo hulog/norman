@@ -41,11 +41,10 @@ public class sendInterf {
         return false;
     }
 
-    public final void send_P_Sms() {
+    public final boolean send_P_Sms() {
         if (it.msgSend(PID, toPerson, viaSms, message))
-            syso("success");
-        else
-            syso("failed");
+            return true;
+        return false;
     }
 
     public final void send_P_All() {
@@ -55,20 +54,16 @@ public class sendInterf {
             syso("failed");
     }
 
-    public final void send_G_Wx() {
+    public final boolean send_G_Wx() {
         if (it.msgSend(GID, toGoup, viaWX, message))
-            syso("success");
-        else
-            syso("failed");
-
+            return true;
+        return false;
     }
 
-    public final void send_G_Em() {
+    public final boolean send_G_Em() {
         if (it.msgSend(GID, toGoup, viaEmail, message))
-            syso("success");
-        else
-            syso("failed");
-
+            return true;
+        return false;
     }
 
     public final void send_G_Sms() {
