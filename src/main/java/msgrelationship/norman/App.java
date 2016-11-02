@@ -7,7 +7,7 @@ package msgrelationship.norman;
 public class App {
 
     // 压力测试，调用接口次数
-    private static final double count = 100;
+    private static final double count = 80;
     //
     private static int validCount = 0;
 

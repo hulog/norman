@@ -30,22 +30,14 @@ public class sendInterf {
     }
 
     public final boolean send_P_Wx() {
-        if (it.msgSend(PID, toPerson, viaWX, message)){
-            syso("success");
+        if (it.msgSend(PID, toPerson, viaWX, message))
             return true;
-        }
-        else
-            syso("failed");
         return false;
     }
 
     public final boolean send_P_Em() {
-        if (it.msgSend(PID, toPerson, viaEmail, message)){
-            syso("success");
+        if (it.msgSend(PID, toPerson, viaEmail, message))
             return true;
-        }
-        else
-            syso("failed");
         return false;
     }
 
