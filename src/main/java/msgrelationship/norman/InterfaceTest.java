@@ -24,7 +24,7 @@ public class InterfaceTest {
 		String url = "/msg/message/send";
 		
 		HttpClient client = new HttpClient();
-		client.getHostConfiguration().setHost("192.168.1.100", 8088);
+		client.getHostConfiguration().setHost("192.168.199.181", 8088);
 		
 		PostMethod post = new PostMethod(url);
 		
