@@ -10,8 +10,10 @@ public class App {
 
     // 压力测试，调用接口次数
     private static final double wxCount = 5;
+    private static final double emailCount = 5;
     //
     private static int wxValidCount = 0;
+    private static int emailValidCount = 0;
 
     private static void syso(String str) {
         System.out.println(str);
@@ -67,7 +69,14 @@ public class App {
                 case 4:
                     // 发送群组微信(压力)
                     syso("start send group  wx (under pressure)......");
-                    si.send_G_Wx();
+                    wxValidCount = 0;
+                    for (int i = 0; i < wxCount; i++) {
+                        if (si.send_G_Wx())
+                            wxValidCount++;
+                    }
+                    syso("发送次数:" + (int) wxCount + ",成功次数:" + wxValidCount + ",成功率:" + wxValidCount / wxCount * 100
+                            + "%");
+                break;
                 case 5:
                     // 发送个人邮件
                     syso("start send personal email ......");
@@ -78,7 +87,13 @@ public class App {
                 break;
                 case 6:
                     // 发送个人邮件(压力)
-                    syso("邮件压力测试开始 (under pressure)");
+                    emailValidCount = 0;
+                    for (int i = 0; i < emailCount; i++) {
+                        if (si.send_P_Em())
+                            emailValidCount++;
+                    }
+                    syso("发送次数:" + (int) emailCount + ",成功次数:" + emailValidCount + ",成功率:" + emailValidCount / emailCount * 100
+                            + "%");
                 break;
                 case 7:
                     // 发送群组邮件
@@ -90,6 +105,14 @@ public class App {
                 break;
                 case 8:
                     // 发送群组邮件(压力)
+                    
+                    for (int i = 0; i < emailCount; i++) {
+                        if (si.send_G_Em())
+                            emailValidCount++;
+                    }
+                    syso("发送次数:" + (int) emailCount + ",成功次数:" + emailValidCount + ",成功率:" + emailValidCount / emailCount * 100
+                            + "%");
+                    
                     syso("start send group email (under pressure)......");
                 break;
                 default:
