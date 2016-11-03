@@ -10,8 +10,10 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class InterfaceTest {
 
-    private String client_id = "hl";
-    private String client_password = "000000";
+    private String client_id = GlobalConstants.client_id;
+    private String client_password = GlobalConstants.client_password;
+    private String host = GlobalConstants.host;
+    private int port = GlobalConstants.port;
 
     /**
      * @param client_id
@@ -29,10 +31,10 @@ public class InterfaceTest {
      */
     public boolean msgSend(String send_id, String send_type, String send_way, String message) {
 
-        String url = "/msg/message/send";
+        String url = GlobalConstants.send_msg_url;
 
         HttpClient client = new HttpClient();
-        client.getHostConfiguration().setHost("192.168.199.181", 8088);
+        client.getHostConfiguration().setHost(host, port);
 
         PostMethod post = new PostMethod(url);
 
@@ -48,6 +50,8 @@ public class InterfaceTest {
 
         try {
             int resCode = client.executeMethod(post);
+            if (resCode == 200)
+                return true;
         } catch (HttpException ex) {
             // TODO Auto-generated catch block
             ex.printStackTrace();
@@ -58,7 +62,6 @@ public class InterfaceTest {
             return false;
         }
         post.releaseConnection();
-
         return true;
     }
 
