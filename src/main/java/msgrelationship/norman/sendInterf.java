@@ -47,11 +47,10 @@ public class sendInterf {
         return false;
     }
 
-    public final void send_P_All() {
+    public final boolean send_P_All() {
         if (it.msgSend(PID, toPerson, viaAll, message))
-            syso("success");
-        else
-            syso("failed");
+            return true;
+        return false;
     }
 
     public final boolean send_G_Wx() {
@@ -66,18 +65,16 @@ public class sendInterf {
         return false;
     }
 
-    public final void send_G_Sms() {
+    public final boolean send_G_Sms() {
         if (it.msgSend(GID, toGoup, viaSms, message))
-            syso("success");
-        else
-            syso("failed");
+            return true;
+        return false;
     }
 
-    public final void send_G_All() {
+    public final boolean send_G_All() {
         if (it.msgSend(GID, toGoup, viaAll, message))
-            syso("success");
-        else
-            syso("failed");
+            return true;
+        return false;
     }
 
     public final void send_P_search() {
@@ -86,9 +83,5 @@ public class sendInterf {
 
     public final void send_G_search() {
 
-    }
-
-    private void syso(String str) {
-        System.out.println(str);
     }
 }

@@ -114,15 +114,47 @@ public class App {
                             + emailValidCount / emailCount * 100 + "%");
                 break;
                 case 9:
-                     // 发送个人短信
+                    // 发送个人短信
                     syso("start send personal sms......");
                     if (si.send_P_Sms())
                         syso("success");
                     else
                         syso("failed");
                 break;
+                case 10:
+                    // 发送群组短信
+                    syso("start send group sms......");
+                    if (si.send_G_Sms())
+                        syso("success");
+                    else
+                        syso("failed");
+                break;
+                case 11:
+                    syso("start send personal message via all three method......");
+                    if (si.send_P_All()) {
+                        syso("success");
+                    } else {
+                        syso("failed");
+                    }
+                break;
+                case 12:
+                    syso("start send group message via all three method......");
+                    if (si.send_G_All()) {
+                        syso("success");
+                    } else {
+                        syso("failed");
+                    }
+                break;
+                case 13:
+                // 查询发送对象（个人）
+                // TODO
+                break;
+                case 14:
+                // 查询发送对象（群组）
+                // TODO
+                break;
                 default:
-                    syso("额……输入参数错误！");
+                    syso("yahoo……参数错误le！");
                 break;
             }
             tips();
