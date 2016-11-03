@@ -21,10 +21,9 @@ public class App {
 
     private static void tips() {
         syso("\n");
-        syso("微信(单发1/压力单发2)");
-        syso("微信(群发3/压力群发4)");
-        syso("邮件(单发5/压力单发6)");
-        syso("邮件(群发7/压力群发8)");
+        syso("微信(单发1/压力单发2)，微信(群发3/压力群发4)");
+        syso("邮件(单发5/压力单发6)，邮件(群发7/压力群发8)");
+        syso("短信(单发9(没经费就不压力测试了)");
         syso("退出请按0");
         syso("请输入要功能编号:");
     }
@@ -50,7 +49,7 @@ public class App {
                 break;
                 case 2:
                     // 发送个人微信(压力)
-                    syso("调用微信接口，压力测试开始");
+                    syso("调用微信接口，压力测试开始......");
                     for (int i = 0; i < wxCount; i++) {
                         if (si.send_P_Wx())
                             wxValidCount++;
@@ -92,8 +91,8 @@ public class App {
                         if (si.send_P_Em())
                             emailValidCount++;
                     }
-                    syso("发送次数:" + (int) emailCount + ",成功次数:" + emailValidCount + ",成功率:" + emailValidCount / emailCount * 100
-                            + "%");
+                    syso("发送次数:" + (int) emailCount + ",成功次数:" + emailValidCount + ",成功率:"
+                            + emailValidCount / emailCount * 100 + "%");
                 break;
                 case 7:
                     // 发送群组邮件
@@ -105,17 +104,25 @@ public class App {
                 break;
                 case 8:
                     // 发送群组邮件(压力)
-                    
+                    syso("start send group email (under pressure)......");
+                    emailValidCount = 0;
                     for (int i = 0; i < emailCount; i++) {
                         if (si.send_G_Em())
                             emailValidCount++;
                     }
-                    syso("发送次数:" + (int) emailCount + ",成功次数:" + emailValidCount + ",成功率:" + emailValidCount / emailCount * 100
-                            + "%");
-                    
-                    syso("start send group email (under pressure)......");
+                    syso("发送次数:" + (int) emailCount + ",成功次数:" + emailValidCount + ",成功率:"
+                            + emailValidCount / emailCount * 100 + "%");
+                break;
+                case 9:
+                     // 发送个人短信
+                    syso("start send personal sms......");
+                    if (si.send_P_Sms())
+                        syso("success");
+                    else
+                        syso("failed");
                 break;
                 default:
+                    syso("额……输入参数错误！");
                 break;
             }
             tips();

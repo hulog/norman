@@ -51,9 +51,11 @@ public class InterfaceTest {
         } catch (HttpException ex) {
             // TODO Auto-generated catch block
             ex.printStackTrace();
+            return false;
         } catch (IOException ex) {
             // TODO Auto-generated catch block
             ex.printStackTrace();
+            return false;
         }
         post.releaseConnection();
 
