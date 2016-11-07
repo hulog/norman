@@ -22,4 +22,11 @@ public class GlobalConstants {
     public static final String send_msg_url = "/msg/message/send";
     public static final String search_objects_url = "/msg/search";
 
+    // 发送对象的id(个人)
+    public static final String send_pid = "2";
+    // 发送对象的id(群组)
+    public static final String send_gid = "1";
+
+    // 发送内容
+    public static final String message = "Congratulations,中英文测试正常";
 }

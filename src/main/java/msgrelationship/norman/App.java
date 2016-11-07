@@ -20,12 +20,13 @@ public class App {
     }
 
     private static void tips() {
-        syso("\n");
         syso("微信(单发1/压力单发2)，微信(群发3/压力群发4)");
         syso("邮件(单发5/压力单发6)，邮件(群发7/压力群发8)");
-        syso("短信(单发9(没经费就不压力测试了)");
+        syso("短信(单发9),短信(群发10)......(没经费就不压力测试了orz...)");
+        syso("同时通过微信邮件短信发送消息(个人11,群组12)");
+        syso("查询发送对象(个人13,群组14)");
         syso("退出请按0");
-        syso("请输入要功能编号:");
+        System.out.print("请输入功能编号:");
     }
 
     public static void main(String[] args) {
@@ -147,6 +148,7 @@ public class App {
                 break;
                 case 13:
                 // 查询发送对象（个人）
+                    
                 // TODO
                 break;
                 case 14:

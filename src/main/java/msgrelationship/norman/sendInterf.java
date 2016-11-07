@@ -9,8 +9,8 @@ public class sendInterf {
 
     // 发送对象ID， 群组群号/个人编号
     // send_id
-    private final static String PID = "2";
-    private final static String GID = "1";
+    private final static String PID = GlobalConstants.send_pid;
+    private final static String GID = GlobalConstants.send_gid;
 
     // 发送方式，1表示微信，2表示邮箱，3表示短信，4表示全部
     // send_way
@@ -20,9 +20,8 @@ public class sendInterf {
     private final static String viaAll = "4";
 
     // 信息内容
-    private final static String message = "Congratulations,中英文测试正常";
+    private final static String message = GlobalConstants.message;
 
-    // private InterfaceTest it = new InterfaceTest();
     private InterfaceTest it;
 
     public sendInterf() {
@@ -78,6 +77,7 @@ public class sendInterf {
     }
 
     public final void send_P_search() {
+        it.msgsend
 
     }
 
