@@ -76,12 +76,11 @@ public class sendInterf {
         return false;
     }
 
-    public final void send_P_search() {
-        it.msgsend
-
+    public final String send_P_search() {
+        return it.objSearch(toPerson, PID);
     }
 
-    public final void send_G_search() {
-
+    public final String send_G_search() {
+        return it.objSearch(toGoup, GID);
     }
 }

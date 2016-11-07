@@ -148,12 +148,21 @@ public class App {
                 break;
                 case 13:
                 // 查询发送对象（个人）
-                    
-                // TODO
+                    String resp1 = si.send_P_search();
+                    if(null != resp1){
+                        syso("response===>>>"+resp1);
+                    }else{
+                        syso("some errors may have happend...");
+                    }
                 break;
                 case 14:
                 // 查询发送对象（群组）
-                // TODO
+                    String resp2 = si.send_G_search();
+                    if(null != resp2){
+                        syso("response===>>>"+resp2);
+                    }else{
+                        syso("some errors may have happend...");
+                    }
                 break;
                 default:
                     syso("yahoo……参数错误le！");
