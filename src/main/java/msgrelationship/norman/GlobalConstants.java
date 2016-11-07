@@ -29,4 +29,7 @@ public class GlobalConstants {
 
     // 发送内容
     public static final String message = "Congratulations,中英文测试正常";
+    //for pressure test
+    public static final int send_times_viaWx= 10;
+    public static final int send_times_viaEmail= 10;
 }

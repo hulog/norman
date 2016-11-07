@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class App {
 
     // 压力测试，调用接口次数
-    private static final double wxCount = 5;
-    private static final double emailCount = 5;
+    private static final double wxCount = GlobalConstants.send_times_viaWx;
+    private static final double emailCount = GlobalConstants.send_times_viaEmail;
     //
     private static int wxValidCount = 0;
     private static int emailValidCount = 0;
